@@ -14,7 +14,7 @@ function GraffitiCard(props) {
     onEdit(graffitiBeingEdited);
   };
   return (
-    <div className="card">
+    <div className="card small">
       {graffiti.imgLocation === "" && (
         <>
           <img
