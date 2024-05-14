@@ -1,7 +1,19 @@
 import React from "react";
 
 function HomePage() {
-  return <h2>Home</h2>;
+  return (
+    <div className="row">
+      <div className="col-sm-4"></div>
+      <div className="col-sm-4">
+        <h1 className="centre xx-large">Home</h1>
+        <h5 className="centre x-large">
+          Welcome to the Graffiti Database homepage! Please enjoy browsing
+          entries!
+        </h5>
+      </div>
+      <div className="col-sm-4"></div>
+    </div>
+  );
 }
 
 export default HomePage;

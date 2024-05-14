@@ -16,8 +16,6 @@ function GraffitiList({ graffitis, onSave }) {
     setGraffitiBeingEdited({});
   };
 
-  console.log(graffitis);
-
   return (
     <div className="row">
       {graffitis.map((graffiti) => (

@@ -13,7 +13,7 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
     address: "",
     description: "",
     postcode: "",
-    location: new Location(),
+    location: "",
     imgLocation: "",
   });
 
@@ -81,8 +81,8 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
       location: new Location(),
       imgLocation: "",
     };
-    if (graffiti.graffitiSurveyNumber === 0) {
-      errors.graffitiSurveyNumber = "GNS is required.";
+    if (graffiti.graffitiSurveyNumber.length === 0) {
+      errors.graffitiSurveyNumber = "GSN is required.";
     }
     if (graffiti.name.length === 0) {
       errors.name = "Name is required.";
@@ -97,7 +97,7 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
       errors.description = "Description is required.";
     }
     if (graffiti.postcode.length === 0) {
-      errors.size = "Postcode is required.";
+      errors.postcode = "Postcode is required.";
     }
     return errors;
   }
@@ -171,19 +171,6 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
         </div>
       )}
 
-      <label htmlFor="description">Description</label>
-      <textarea
-        name="description"
-        placeholder="enter description"
-        value={graffiti.description}
-        onChange={handleChange}
-      ></textarea>
-      {errors.description.length > 0 && (
-        <div className="card error">
-          <p>{errors.description}</p>{" "}
-        </div>
-      )}
-
       <label htmlFor="postcode">Postcode</label>
       <input
         type="text"
@@ -215,6 +202,19 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
         value={graffiti.location.latitude}
         onChange={handleChange}
       />
+
+      <label htmlFor="description">Description</label>
+      <textarea
+        name="description"
+        placeholder="enter description"
+        value={graffiti.description}
+        onChange={handleChange}
+      ></textarea>
+      {errors.description.length > 0 && (
+        <div className="card error">
+          <p>{errors.description}</p>{" "}
+        </div>
+      )}
 
       <label htmlFor="imgLocation">Image URL</label>
       <input

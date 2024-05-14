@@ -1,7 +1,7 @@
 import { Graffiti } from "./Graffiti";
 
-const baseUrl = "https://graffitiapi.onrender.com";
-//const baseUrl = "http://localhost:3000";
+//const baseUrl = "https://graffitiapi.onrender.com";
+const baseUrl = "http://localhost:3000";
 const url = `${baseUrl}/graffitis`;
 
 function translateStatusToErrorMessage(status) {
@@ -70,6 +70,9 @@ const graffitiAPI = {
     })
       .then(checkStatus)
       .then(parseJSON)
+      .then((graffiti) => {
+        return new Graffiti(graffiti);
+      })
       .catch((error) => {
         console.log("log client error " + error);
         throw new Error(
@@ -79,7 +82,36 @@ const graffitiAPI = {
   },
 
   find(_id) {
-    return fetch(`${url}/${_id}`).then(checkStatus).then(parseJSON);
+    return fetch(`${url}/${_id}`)
+      .then(checkStatus)
+      .then(parseJSON)
+      .then((graffiti) => {
+        return new Graffiti(graffiti);
+      })
+      .catch((error) => {
+        console.log("log client error " + error);
+        throw new Error(
+          "There was an error retrieving the project. Please try again."
+        );
+      });
+  },
+
+  add(graffiti) {
+    return fetch(`${url}`, {
+      method: "POST",
+      body: JSON.stringify(graffiti),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(checkStatus)
+      .then(parseJSON)
+      .catch((error) => {
+        console.log("log client error " + error);
+        throw new Error(
+          "There was an error updating the project. Please try again."
+        );
+      });
   },
 };
 

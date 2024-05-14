@@ -15,7 +15,22 @@ function GraffitiCard(props) {
   };
   return (
     <div className="card">
-      <img src={graffiti.imgLocation} alt={graffiti.name} />
+      {graffiti.imgLocation === "" && (
+        <>
+          <img
+            className="rounded"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp5hvw6LxzrtFDIiaj9ETqX7dW38OcbMaHCA&usqp=CAU"
+            alt={graffiti.name}
+          />
+        </>
+      )}
+      {graffiti.imgLocation !== "" && (
+        <img
+          className="rounded"
+          src={graffiti.imgLocation}
+          alt={graffiti.name}
+        />
+      )}
       <section className="section dark">
         <Link to={"/graffitis/" + graffiti._id}>
           <h5 className="strong">

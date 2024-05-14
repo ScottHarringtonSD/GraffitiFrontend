@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { graffitiAPI } from "./graffitiAPI";
 import GraffitiDetail from "./GraffitiDetail";
 import { useParams } from "react-router-dom";
+import GraffitiForm from "./GraffitiForm";
 
 function GraffitiPage(props) {
   const [loading, setLoading] = useState(false);
@@ -9,6 +10,7 @@ function GraffitiPage(props) {
   const [error, setError] = useState(null);
   const params = useParams();
   const id = params.id;
+  const [graffitiBeingEdited, setGraffitiBeingEdited] = useState({});
 
   useEffect(() => {
     setLoading(true);
@@ -23,6 +25,25 @@ function GraffitiPage(props) {
         setLoading(false);
       });
   }, [id]);
+
+  const handleEdit = (graffiti) => {
+    setGraffitiBeingEdited(graffiti);
+  };
+
+  const cancelEditing = () => {
+    setGraffitiBeingEdited({});
+  };
+
+  const saveGraffiti = (graffiti) => {
+    graffitiAPI
+      .patch(graffiti)
+      .then((updatedGraffiti) => {
+        setGraffiti(updatedGraffiti);
+      })
+      .catch((e) => {
+        setError(e.message);
+      });
+  };
 
   return (
     <div>
@@ -47,8 +68,16 @@ function GraffitiPage(props) {
             </div>
           </div>
         )}
-
-        {graffiti && <GraffitiDetail graffiti={graffiti} />}
+        {graffiti === graffitiBeingEdited && (
+          <GraffitiForm
+            graffiti={graffiti}
+            onCancel={cancelEditing}
+            onSave={saveGraffiti}
+          />
+        )}
+        {graffiti && graffiti !== graffitiBeingEdited && (
+          <GraffitiDetail graffiti={graffiti} onEdit={handleEdit} />
+        )}
       </>
     </div>
   );

@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import HomePage from "./home/HomePage";
 import GraffitiPage from "./graffitis/GraffitiPage";
+import GraffitiAddPage from "./graffitis/GraffitiAddPage";
 
 function App() {
   return (
@@ -28,7 +29,10 @@ function App() {
           Home
         </NavLink>
         <NavLink to="/graffitis" className="button rounded">
-          Projects
+          Graffiti Index
+        </NavLink>
+        <NavLink to="/addgraffitis" className="button rounded">
+          Add Graffiti
         </NavLink>
       </header>
       <div className="container">
@@ -36,6 +40,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/graffitis" element={<GraffitisPage />} />
           <Route path="/graffitis/:id" element={<GraffitiPage />} />
+          <Route path="/addgraffitis" element={<GraffitiAddPage />} />
         </Routes>
       </div>
     </Router>
