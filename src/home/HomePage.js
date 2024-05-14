@@ -5,7 +5,6 @@ function HomePage() {
     <div className="row">
       <div className="col-sm-4"></div>
       <div className="col-sm-4">
-        <h1 className="centre xx-large">Home</h1>
         <h5 className="centre x-large">
           Welcome to the Graffiti Database homepage! Please enjoy browsing
           entries!

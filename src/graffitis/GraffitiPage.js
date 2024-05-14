@@ -48,7 +48,7 @@ function GraffitiPage(props) {
   return (
     <div>
       <>
-        <h1>Graffiti Detail</h1>
+        <h1 className="x-large centre">Details</h1>
 
         {loading && (
           <div className="center-page">

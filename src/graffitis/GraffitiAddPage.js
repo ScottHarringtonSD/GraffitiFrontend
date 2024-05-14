@@ -7,7 +7,6 @@ function GraffitiAddPage() {
   const graffiti = new Graffiti();
   const [cancelScreen, setCancelScreen] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const cancelAdd = () => {
@@ -15,8 +14,6 @@ function GraffitiAddPage() {
   };
 
   const addGraffiti = (graffiti) => {
-    console.log("this is the add step");
-    setLoading(true);
     try {
       graffitiAPI
         .add(graffiti)
@@ -27,32 +24,42 @@ function GraffitiAddPage() {
           setError(e.message);
         });
     } finally {
-      setLoading(false);
     }
   };
 
   const resetPage = () => {
     setCancelScreen(false);
     setSuccessMessage("");
+    setError(null);
   };
 
   return (
     <>
-      <h1 className="x-large">Add Graffiti</h1>
+      <h1 className="x-large centre">Add Graffiti</h1>
       {cancelScreen && (
         <>
-          <div>Changes have been cancelled!</div>
-          <button className="primary bordered medium" onClick={resetPage}>
-            Add New Graffiti
-          </button>
+          <div className="centre">Changes have been cancelled!</div>
+          <div className="centre-btn">
+            <button
+              className="primary bordered medium centre-btn"
+              onClick={resetPage}
+            >
+              Add New Graffiti
+            </button>
+          </div>
         </>
       )}
       {successMessage !== "" && (
         <>
-          <div>{successMessage.message}</div>
-          <button className="primary bordered medium" onClick={resetPage}>
-            Add New Graffiti
-          </button>
+          <div className="centre">{successMessage.message}!</div>
+          <div className="centre-btn">
+            <button
+              className="primary bordered medium centre-btn"
+              onClick={resetPage}
+            >
+              Add New Graffiti
+            </button>
+          </div>
         </>
       )}
       {error && (
@@ -69,19 +76,13 @@ function GraffitiAddPage() {
           </button>
         </div>
       )}
-      {!cancelScreen && successMessage === "" && (
+      {!cancelScreen && successMessage === "" && error === null && (
         <div>
           <GraffitiForm
             graffiti={graffiti}
             onCancel={cancelAdd}
             onSave={addGraffiti}
           />
-        </div>
-      )}
-      {loading && (
-        <div className="center-page">
-          <span className="spinner primary"></span>
-          <p>Loading...</p>
         </div>
       )}
     </>

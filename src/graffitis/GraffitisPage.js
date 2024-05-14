@@ -54,7 +54,7 @@ function GraffitisPage() {
 
   return (
     <>
-      <h1>Graffiti Index</h1>
+      <h1 className="x-large centre">Graffiti Index</h1>
       {error && (
         <div className="row">
           <div className="card large error">
