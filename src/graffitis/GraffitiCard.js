@@ -17,41 +17,47 @@ function GraffitiCard(props) {
     <div className="card small">
       {graffiti.imgLocation === "" && (
         <>
-          <img
-            className="rounded"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp5hvw6LxzrtFDIiaj9ETqX7dW38OcbMaHCA&usqp=CAU"
-            alt={graffiti.name}
-          />
+          <div className="row">
+            <img
+              className="rounded"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp5hvw6LxzrtFDIiaj9ETqX7dW38OcbMaHCA&usqp=CAU"
+              alt={graffiti.name}
+            />
+          </div>
         </>
       )}
       {graffiti.imgLocation !== "" && (
-        <img
-          className="rounded"
-          src={graffiti.imgLocation}
-          alt={graffiti.name}
-        />
+        <div className="row">
+          <img
+            className="rounded"
+            src={graffiti.imgLocation}
+            alt={graffiti.name}
+          />
+        </div>
       )}
-      <section className="section dark">
-        <Link to={"/graffitis/" + graffiti._id}>
-          <h5 className="strong">
-            <strong>{graffiti.name}</strong>
-          </h5>
-          <p>
-            <strong>GSN: </strong>
-            {graffiti.graffitiSurveyNumber}
-          </p>
-          <p>{formatDescription(graffiti.description)}</p>
-        </Link>
-        <button
-          className=" bordered"
-          onClick={() => {
-            handleEditClick(graffiti);
-          }}
-        >
-          <span className="icon-edit "></span>
-          Edit
-        </button>
-      </section>
+      <div className="row">
+        <section className="section dark">
+          <Link to={"/graffitis/" + graffiti._id}>
+            <h5 className="strong">
+              <strong>{graffiti.name}</strong>
+            </h5>
+            <p>
+              <strong>GSN: </strong>
+              {graffiti.graffitiSurveyNumber}
+            </p>
+            <p>{formatDescription(graffiti.description)}</p>
+          </Link>
+          <button
+            className=" bordered"
+            onClick={() => {
+              handleEditClick(graffiti);
+            }}
+          >
+            <span className="icon-edit "></span>
+            Edit
+          </button>
+        </section>
+      </div>
     </div>
   );
 }

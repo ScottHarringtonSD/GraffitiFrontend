@@ -9,8 +9,16 @@ import {
 import HomePage from "./home/HomePage";
 import GraffitiPage from "./graffitis/GraffitiPage";
 import GraffitiAddPage from "./graffitis/GraffitiAddPage";
+import LoginPage from "./Login/LoginPage";
+import { useState } from "react";
 
 function App() {
+  const [token, setToken] = useState();
+
+  if (!token) {
+    return <LoginPage setToken={setToken} />;
+  }
+
   return (
     <Router>
       <header className="sticky">
