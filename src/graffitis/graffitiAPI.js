@@ -1,7 +1,7 @@
 import { Graffiti } from "./Graffiti";
 
-const baseUrl = "https://graffitiapi.onrender.com";
-//const baseUrl = "http://localhost:3000";
+//const baseUrl = "https://graffitiapi.onrender.com";
+const baseUrl = "http://localhost:3000";
 const url = `${baseUrl}/graffitis`;
 
 function translateStatusToErrorMessage(status) {
@@ -42,9 +42,21 @@ function delay(ms) {
   };
 }
 
+function getToken() {
+  const tokenString = sessionStorage.getItem("token");
+  const userToken = JSON.parse(tokenString);
+  return userToken;
+}
+
 const graffitiAPI = {
   get(page = 1, limit = 20) {
-    return fetch(`${url}?_page=${page}&_limit=${limit}&_sort=name`)
+    const token = getToken();
+
+    return fetch(`${url}?_page=${page}&_limit=${limit}&_sort=name`, {
+      headers: {
+        Auth: JSON.stringify(token),
+      },
+    })
       .then(checkStatus)
       .then(parseJSON)
       .then((graffitis) => {
@@ -61,11 +73,13 @@ const graffitiAPI = {
   },
 
   patch(graffiti) {
+    const token = getToken();
     return fetch(`${url}`, {
       method: "PATCH",
       body: JSON.stringify(graffiti),
       headers: {
         "Content-Type": "application/json",
+        Auth: JSON.stringify(token),
       },
     })
       .then(checkStatus)
@@ -82,7 +96,12 @@ const graffitiAPI = {
   },
 
   find(_id) {
-    return fetch(`${url}/${_id}`)
+    const token = getToken();
+    return fetch(`${url}/${_id}`, {
+      headers: {
+        Auth: JSON.stringify(token),
+      },
+    })
       .then(checkStatus)
       .then(parseJSON)
       .then((graffiti) => {
@@ -97,11 +116,13 @@ const graffitiAPI = {
   },
 
   add(graffiti) {
+    const token = getToken();
     return fetch(`${url}`, {
       method: "POST",
       body: JSON.stringify(graffiti),
       headers: {
         "Content-Type": "application/json",
+        Auth: JSON.stringify(token),
       },
     })
       .then(checkStatus)

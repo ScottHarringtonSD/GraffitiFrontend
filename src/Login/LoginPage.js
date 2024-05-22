@@ -10,11 +10,14 @@ export default function LoginPage({ setToken }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = await loginAPI.login({
+    const tokenRes = await loginAPI.login({
       username,
       password,
     });
-    setToken(token);
+    console.log(tokenRes);
+    const tokenString = tokenRes.token.toString();
+    console.log(tokenString);
+    setToken(tokenString);
   };
 
   return (
