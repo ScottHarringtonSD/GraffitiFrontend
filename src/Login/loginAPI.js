@@ -1,5 +1,5 @@
-//const baseUrl = "https://graffitiapi.onrender.com";
-const baseUrl = "http://localhost:3000";
+const baseUrl = "https://graffitiapi.onrender.com";
+//const baseUrl = "http://localhost:3000";
 const url = `${baseUrl}/login`;
 
 function translateStatusToErrorMessage(status) {
