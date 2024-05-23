@@ -134,6 +134,29 @@ const graffitiAPI = {
         );
       });
   },
+
+  delete(graffiti) {
+    const token = getToken();
+    console.log(token);
+    console.log(JSON.stringify(graffiti._id));
+    console.log(JSON.stringify(graffiti));
+    return fetch(`${url}`, {
+      method: "DELETE",
+      body: JSON.stringify(graffiti),
+      headers: {
+        "Content-Type": "application/json",
+        Auth: JSON.stringify(token),
+      },
+    })
+      .then(checkStatus)
+      .then(parseJSON)
+      .catch((error) => {
+        console.log("log client error " + error);
+        throw new Error(
+          "There was an error deleting the project. Please try again."
+        );
+      });
+  },
 };
 
 export { graffitiAPI };

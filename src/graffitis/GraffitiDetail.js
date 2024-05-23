@@ -1,9 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function GraffitiDetail({ graffiti, onEdit }) {
+export default function GraffitiDetail({ graffiti, onEdit, onDelete }) {
   const handleEditClick = (graffitiBeingEdited) => {
     onEdit(graffitiBeingEdited);
+  };
+
+  const handleDeleteClick = (graffitiBeingDeleted) => {
+    onDelete(graffitiBeingDeleted);
   };
 
   return (
@@ -59,6 +63,15 @@ export default function GraffitiDetail({ graffiti, onEdit }) {
             <span className="icon-edit "></span>
             Edit
           </button>
+          <button
+            className="inverse bordered"
+            onClick={() => {
+              handleDeleteClick(graffiti);
+            }}
+          >
+            <span className=""></span>
+            Delete
+          </button>
         </div>
       </div>
     </div>
@@ -67,4 +80,5 @@ export default function GraffitiDetail({ graffiti, onEdit }) {
 
 GraffitiDetail.propTypes = {
   onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };

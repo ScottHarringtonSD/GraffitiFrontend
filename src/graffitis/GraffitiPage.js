@@ -3,6 +3,7 @@ import { graffitiAPI } from "./graffitiAPI";
 import GraffitiDetail from "./GraffitiDetail";
 import { useParams } from "react-router-dom";
 import GraffitiForm from "./GraffitiForm";
+import GraffitiDeletePage from "./GraffitiDeletePage";
 
 function GraffitiPage(props) {
   const [loading, setLoading] = useState(false);
@@ -11,6 +12,8 @@ function GraffitiPage(props) {
   const params = useParams();
   const id = params.id;
   const [graffitiBeingEdited, setGraffitiBeingEdited] = useState({});
+  const [graffitiBeingDeleted, setGraffitiBeingDeleted] = useState({});
+  const [deleteSuccessful, setDeleteSuccessful] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -30,6 +33,14 @@ function GraffitiPage(props) {
     setGraffitiBeingEdited(graffiti);
   };
 
+  const handleDelete = (graffiti) => {
+    setGraffitiBeingDeleted(graffiti);
+  };
+
+  const cancelDelete = () => {
+    setGraffitiBeingDeleted({});
+  };
+
   const cancelEditing = () => {
     setGraffitiBeingEdited({});
   };
@@ -45,16 +56,26 @@ function GraffitiPage(props) {
       });
   };
 
+  const deleteGraffiti = (graffiti) => {
+    console.log(graffiti);
+    graffitiAPI.delete(graffiti).catch((e) => {
+      setError(e.message);
+    });
+    setDeleteSuccessful(true);
+    setGraffitiBeingDeleted({});
+  };
+
   return (
     <div>
       <>
-        <h1 className="x-large centre">Details</h1>
-
         {loading && (
-          <div className="center-page">
-            <span className="spinner primary"></span>
-            <p>Loading...</p>
-          </div>
+          <>
+            <h1 className="x-large centre">Details</h1>
+            <div className="center-page">
+              <span className="spinner primary"></span>
+              <p>Loading...</p>
+            </div>
+          </>
         )}
 
         {error && (
@@ -69,15 +90,45 @@ function GraffitiPage(props) {
           </div>
         )}
         {graffiti === graffitiBeingEdited && (
-          <GraffitiForm
-            graffiti={graffiti}
-            onCancel={cancelEditing}
-            onSave={saveGraffiti}
-          />
+          <>
+            <h1 className="x-large centre">Details</h1>
+            <GraffitiForm
+              graffiti={graffiti}
+              onCancel={cancelEditing}
+              onSave={saveGraffiti}
+            />
+          </>
         )}
-        {graffiti && graffiti !== graffitiBeingEdited && (
-          <GraffitiDetail graffiti={graffiti} onEdit={handleEdit} />
+        {graffiti === graffitiBeingDeleted && (
+          <>
+            <h1 className="x-large centre">Details</h1>
+            <GraffitiDeletePage
+              graffiti={graffiti}
+              onCancel={cancelDelete}
+              onDelete={deleteGraffiti}
+            />
+          </>
         )}
+        {deleteSuccessful && (
+          <>
+            <h5 className="centre">
+              Your Graffiti has successfully been deleted!
+            </h5>
+          </>
+        )}
+        {graffiti &&
+          graffiti !== graffitiBeingEdited &&
+          graffiti !== graffitiBeingDeleted &&
+          !deleteSuccessful && (
+            <>
+              <h1 className="x-large centre">Details</h1>
+              <GraffitiDetail
+                graffiti={graffiti}
+                onEdit={handleEdit}
+                onDelete={handleDelete}
+              />
+            </>
+          )}
       </>
     </div>
   );
