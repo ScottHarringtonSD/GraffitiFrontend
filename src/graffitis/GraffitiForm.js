@@ -122,6 +122,7 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
         placeholder="enter name"
         value={graffiti.name}
         onChange={handleChange}
+        className="bordered"
       />
       {errors.name.length > 0 && (
         <div className="card error">
@@ -136,6 +137,7 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
         placeholder="enter GSN"
         value={graffiti.graffitiSurveyNumber}
         onChange={handleChange}
+        className="bordered"
       />
       {errors.graffitiSurveyNumber.length > 0 && (
         <div className="card error">
@@ -150,6 +152,7 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
         placeholder="enter size"
         value={graffiti.size}
         onChange={handleChange}
+        className="bordered"
       />
       {errors.size.length > 0 && (
         <div className="card error">
@@ -164,6 +167,7 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
         placeholder="enter address"
         value={graffiti.address}
         onChange={handleChange}
+        className="bordered"
       />
       {errors.address.length > 0 && (
         <div className="card error">
@@ -178,6 +182,7 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
         placeholder="enter postcode"
         value={graffiti.postcode}
         onChange={handleChange}
+        className="bordered"
       />
       {errors.postcode.length > 0 && (
         <div className="card error">
@@ -192,6 +197,7 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
         placeholder="enter longitude"
         value={graffiti.location.longitude}
         onChange={handleChange}
+        className="bordered"
       />
 
       <label htmlFor="location.latitude">Latitude</label>
@@ -201,6 +207,7 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
         placeholder="enter latitude"
         value={graffiti.location.latitude}
         onChange={handleChange}
+        className="bordered"
       />
 
       <label htmlFor="description">Description</label>
@@ -209,6 +216,7 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
         placeholder="enter description"
         value={graffiti.description}
         onChange={handleChange}
+        className="bordered"
       ></textarea>
       {errors.description.length > 0 && (
         <div className="card error">
@@ -223,6 +231,7 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
         placeholder="enter URL"
         value={graffiti.imgLocation}
         onChange={handleChange}
+        className="bordered"
       />
 
       <div className="input-group">

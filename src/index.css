@@ -39,3 +39,8 @@ img {
   justify-content: center;
   align-items: center;
 }
+
+.search-input {
+  background-color: rgb(245, 245, 245);
+  width: 100%;
+}

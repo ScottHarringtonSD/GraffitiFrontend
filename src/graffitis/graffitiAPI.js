@@ -1,7 +1,7 @@
 import { Graffiti } from "./Graffiti";
 
-const baseUrl = "https://graffitiapi.onrender.com";
-//const baseUrl = "http://localhost:3000";
+//const baseUrl = "https://graffitiapi.onrender.com";
+const baseUrl = "http://localhost:3000";
 const url = `${baseUrl}/graffitis`;
 
 function translateStatusToErrorMessage(status) {
@@ -153,7 +153,31 @@ const graffitiAPI = {
       .catch((error) => {
         console.log("log client error " + error);
         throw new Error(
-          "There was an error deleting the project. Please try again."
+          "There was an error deleting the entry. Please try again."
+        );
+      });
+  },
+
+  search(searchString) {
+    const token = getToken();
+    return fetch(`${url}?search=${searchString}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Auth: JSON.stringify(token),
+      },
+    })
+      .then(checkStatus)
+      .then(parseJSON)
+      .then((graffitis) => {
+        return graffitis.map((p) => {
+          return new Graffiti(p);
+        });
+      })
+      .catch((error) => {
+        console.log("log client error " + error);
+        throw new Error(
+          "There was an error searching for graffiti. Please try again."
         );
       });
   },

@@ -11,6 +11,7 @@ import GraffitiPage from "./graffitis/GraffitiPage";
 import GraffitiAddPage from "./graffitis/GraffitiAddPage";
 import LoginPage from "./Login/LoginPage";
 import useToken from "./useToken";
+import GraffitiSearchPage from "./graffitis/GraffitiSearchPage";
 
 function App() {
   const { token, setToken } = useToken();
@@ -41,6 +42,9 @@ function App() {
           <NavLink to="/addgraffitis" className="button rounded">
             Add Graffiti
           </NavLink>
+          <NavLink to="/searchGraffitis" className="button rounded">
+            Search Graffiti
+          </NavLink>
         </header>
         <div className="container">
           <Routes>
@@ -48,6 +52,7 @@ function App() {
             <Route path="/graffitis" element={<GraffitisPage />} />
             <Route path="/graffitis/:id" element={<GraffitiPage />} />
             <Route path="/addgraffitis" element={<GraffitiAddPage />} />
+            <Route path="/searchgraffitis" element={<GraffitiSearchPage />} />
           </Routes>
         </div>
       </Router>
