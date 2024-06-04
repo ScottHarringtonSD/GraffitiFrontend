@@ -11,7 +11,7 @@ function GraffitiSearchBar({ onType }) {
     <input
       type="text"
       name="searchString"
-      placeholder="Search by Name or GSN"
+      placeholder="Search by Name, GSN, Address or Description"
       onChange={handleChange}
       className="search-input bordered"
     />

@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 import { Graffiti } from "./Graffiti";
 import { useState } from "react";
 import { Location } from "./Location";
+import UploadPage from "./UploadPage";
 
 function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
   const [graffiti, setGraffiti] = useState(initialGraffiti);
+  const [imgUrl, setImageUrl] = useState(graffiti.imgLocation);
   const [errors, setErrors] = useState({
     graffitiSurveyNumber: "",
     name: "",
@@ -70,6 +72,19 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
     setErrors(() => validate(updatedGraffiti));
   };
 
+  const setUrl = (url) => {
+    setImageUrl(url);
+    var change = {
+      imgLocation: url,
+    };
+
+    let updatedGraffiti;
+    setGraffiti((p) => {
+      updatedGraffiti = new Graffiti({ ...p, ...change });
+      return updatedGraffiti;
+    });
+  };
+
   function validate(graffiti) {
     let errors = {
       graffitiSurveyNumber: "",
@@ -114,134 +129,137 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
   }
 
   return (
-    <form className="input-group vertical" onSubmit={handleSubmit}>
-      <label htmlFor="name">Graffiti Name</label>
-      <input
-        type="text"
-        name="name"
-        placeholder="enter name"
-        value={graffiti.name}
-        onChange={handleChange}
-        className="bordered"
-      />
-      {errors.name.length > 0 && (
-        <div className="card error">
-          <p>{errors.name}</p>{" "}
+    <>
+      <form className="input-group vertical" onSubmit={handleSubmit}>
+        <label htmlFor="name">Graffiti Name</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="enter name"
+          value={graffiti.name}
+          onChange={handleChange}
+          className="bordered"
+        />
+        {errors.name.length > 0 && (
+          <div className="card error">
+            <p>{errors.name}</p>{" "}
+          </div>
+        )}
+
+        <label htmlFor="graffitiSurveyNumber">Graffiti Survey Number</label>
+        <input
+          type="text"
+          name="graffitiSurveyNumber"
+          placeholder="enter GSN"
+          value={graffiti.graffitiSurveyNumber}
+          onChange={handleChange}
+          className="bordered"
+        />
+        {errors.graffitiSurveyNumber.length > 0 && (
+          <div className="card error">
+            <p>{errors.graffitiSurveyNumber}</p>{" "}
+          </div>
+        )}
+
+        <label htmlFor="size">Size</label>
+        <input
+          type="text"
+          name="size"
+          placeholder="enter size"
+          value={graffiti.size}
+          onChange={handleChange}
+          className="bordered"
+        />
+        {errors.size.length > 0 && (
+          <div className="card error">
+            <p>{errors.size}</p>{" "}
+          </div>
+        )}
+
+        <label htmlFor="address">Address</label>
+        <input
+          type="text"
+          name="address"
+          placeholder="enter address"
+          value={graffiti.address}
+          onChange={handleChange}
+          className="bordered"
+        />
+        {errors.address.length > 0 && (
+          <div className="card error">
+            <p>{errors.address}</p>{" "}
+          </div>
+        )}
+
+        <label htmlFor="postcode">Postcode</label>
+        <input
+          type="text"
+          name="postcode"
+          placeholder="enter postcode"
+          value={graffiti.postcode}
+          onChange={handleChange}
+          className="bordered"
+        />
+        {errors.postcode.length > 0 && (
+          <div className="card error">
+            <p>{errors.postcode}</p>{" "}
+          </div>
+        )}
+
+        <label htmlFor="location.longitude">Longitude</label>
+        <input
+          type="number"
+          name="location.longitude"
+          placeholder="enter longitude"
+          value={graffiti.location.longitude}
+          onChange={handleChange}
+          className="bordered"
+        />
+
+        <label htmlFor="location.latitude">Latitude</label>
+        <input
+          type="number"
+          name="location.latitude"
+          placeholder="enter latitude"
+          value={graffiti.location.latitude}
+          onChange={handleChange}
+          className="bordered"
+        />
+
+        <label htmlFor="description">Description</label>
+        <textarea
+          name="description"
+          placeholder="enter description"
+          value={graffiti.description}
+          onChange={handleChange}
+          className="bordered"
+        ></textarea>
+        {errors.description.length > 0 && (
+          <div className="card error">
+            <p>{errors.description}</p>{" "}
+          </div>
+        )}
+
+        <label htmlFor="imgLocation">Image URL</label>
+        <input
+          type="text"
+          name="imgLocation"
+          placeholder="enter URL"
+          value={imgUrl}
+          onChange={handleChange}
+          className="bordered"
+        />
+        <UploadPage setUrl={setUrl} />
+
+        <div className="input-group">
+          <button className="primary bordered medium">Save</button>
+          <span></span>
+          <button type="button" className="bordered medium" onClick={onCancel}>
+            cancel
+          </button>
         </div>
-      )}
-
-      <label htmlFor="graffitiSurveyNumber">Graffiti Survey Number</label>
-      <input
-        type="text"
-        name="graffitiSurveyNumber"
-        placeholder="enter GSN"
-        value={graffiti.graffitiSurveyNumber}
-        onChange={handleChange}
-        className="bordered"
-      />
-      {errors.graffitiSurveyNumber.length > 0 && (
-        <div className="card error">
-          <p>{errors.graffitiSurveyNumber}</p>{" "}
-        </div>
-      )}
-
-      <label htmlFor="size">Size</label>
-      <input
-        type="text"
-        name="size"
-        placeholder="enter size"
-        value={graffiti.size}
-        onChange={handleChange}
-        className="bordered"
-      />
-      {errors.size.length > 0 && (
-        <div className="card error">
-          <p>{errors.size}</p>{" "}
-        </div>
-      )}
-
-      <label htmlFor="address">Address</label>
-      <input
-        type="text"
-        name="address"
-        placeholder="enter address"
-        value={graffiti.address}
-        onChange={handleChange}
-        className="bordered"
-      />
-      {errors.address.length > 0 && (
-        <div className="card error">
-          <p>{errors.address}</p>{" "}
-        </div>
-      )}
-
-      <label htmlFor="postcode">Postcode</label>
-      <input
-        type="text"
-        name="postcode"
-        placeholder="enter postcode"
-        value={graffiti.postcode}
-        onChange={handleChange}
-        className="bordered"
-      />
-      {errors.postcode.length > 0 && (
-        <div className="card error">
-          <p>{errors.postcode}</p>{" "}
-        </div>
-      )}
-
-      <label htmlFor="location.longitude">Longitude</label>
-      <input
-        type="number"
-        name="location.longitude"
-        placeholder="enter longitude"
-        value={graffiti.location.longitude}
-        onChange={handleChange}
-        className="bordered"
-      />
-
-      <label htmlFor="location.latitude">Latitude</label>
-      <input
-        type="number"
-        name="location.latitude"
-        placeholder="enter latitude"
-        value={graffiti.location.latitude}
-        onChange={handleChange}
-        className="bordered"
-      />
-
-      <label htmlFor="description">Description</label>
-      <textarea
-        name="description"
-        placeholder="enter description"
-        value={graffiti.description}
-        onChange={handleChange}
-        className="bordered"
-      ></textarea>
-      {errors.description.length > 0 && (
-        <div className="card error">
-          <p>{errors.description}</p>{" "}
-        </div>
-      )}
-
-      <label htmlFor="imgLocation">Image URL</label>
-      <input
-        type="text"
-        name="imgLocation"
-        placeholder="enter URL"
-        value={graffiti.imgLocation}
-        onChange={handleChange}
-        className="bordered"
-      />
-
-      <div className="input-group">
-        <button className="primary bordered medium">Save</button>
-        <span></span>
-        <button type="button" className="bordered medium" onClick={onCancel}>
-          cancel
-        </button>
-      </div>
-    </form>
+      </form>
+    </>
   );
 }
 

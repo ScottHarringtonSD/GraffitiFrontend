@@ -1,4 +1,5 @@
 @import "../node_modules/mini.css/dist/mini-nord.min.css";
+@import "@uploadthing/react/styles.css";
 
 form {
   min-width: 300px;
@@ -43,4 +44,9 @@ img {
 .search-input {
   background-color: rgb(245, 245, 245);
   width: 100%;
+}
+
+.btn-right {
+  float: right;
+  padding-top: 27px;
 }

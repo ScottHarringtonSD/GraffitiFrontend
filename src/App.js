@@ -16,6 +16,12 @@ import GraffitiSearchPage from "./graffitis/GraffitiSearchPage";
 function App() {
   const { token, setToken } = useToken();
 
+  async function deleteCurrentToken() {
+    await sessionStorage.removeItem("token");
+    console.log("deleted");
+    window.location.reload();
+  }
+
   if (!token) {
     return <LoginPage setToken={setToken} />;
   } else {
@@ -45,6 +51,11 @@ function App() {
           <NavLink to="/searchGraffitis" className="button rounded">
             Search Graffiti
           </NavLink>
+          <div className="btn-right">
+            <button className="button rounded" onClick={deleteCurrentToken}>
+              Log Out
+            </button>
+          </div>
         </header>
         <div className="container">
           <Routes>

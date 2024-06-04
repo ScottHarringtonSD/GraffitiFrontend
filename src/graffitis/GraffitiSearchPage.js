@@ -20,7 +20,6 @@ function GraffitiSearchPage() {
     if (searchString !== "") {
       setLoading(true);
       try {
-        console.log(searchString);
         const data = await graffitiAPI.search(searchString);
         setGraffitis(data);
         console.log(data);
@@ -34,7 +33,6 @@ function GraffitiSearchPage() {
   }
 
   const onSearch = (searchString) => {
-    console.log(searchString);
     setQuery(searchString);
   };
 
