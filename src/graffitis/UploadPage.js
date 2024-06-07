@@ -8,9 +8,6 @@ function UploadPage({ setUrl }) {
       endpoint="imageUploader"
       onClientUploadComplete={(res) => {
         // Do something with the response
-        console.log("Files: ", res);
-        console.log(res[0].url);
-        console.log("https://utfs.io/f/", res.key);
         setUrl(res[0].url);
       }}
       onUploadError={(error) => {

@@ -17,7 +17,7 @@ export default function GraffitiDetail({ graffiti, onEdit, onDelete }) {
           {graffiti.imgLocation === "" && (
             <>
               <img
-                className="rounded"
+                className="rounded detail-image"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp5hvw6LxzrtFDIiaj9ETqX7dW38OcbMaHCA&usqp=CAU"
                 alt={graffiti.name}
               />
@@ -25,7 +25,7 @@ export default function GraffitiDetail({ graffiti, onEdit, onDelete }) {
           )}
           {graffiti.imgLocation !== "" && (
             <img
-              className="rounded"
+              className="rounded detail-image"
               src={graffiti.imgLocation}
               alt={graffiti.name}
             />

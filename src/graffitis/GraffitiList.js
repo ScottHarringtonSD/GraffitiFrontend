@@ -19,7 +19,7 @@ function GraffitiList({ graffitis, onSave }) {
   return (
     <div className="row">
       {graffitis.map((graffiti) => (
-        <div key={graffiti._id} className="cols-sm">
+        <div key={graffiti._id} className="col-sm-3">
           {graffiti === graffitiBeingEdited ? (
             <GraffitiForm
               graffiti={graffiti}
