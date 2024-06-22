@@ -1,7 +1,6 @@
 import { Graffiti } from "./Graffiti";
 
-const baseUrl = "https://graffitiapi.onrender.com";
-//const baseUrl = "http://localhost:3000";
+const baseUrl = process.env.REACT_APP_API_URL;
 const url = `${baseUrl}/graffitis`;
 
 function translateStatusToErrorMessage(status) {

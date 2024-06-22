@@ -31,7 +31,7 @@ function App() {
           <NavLink to="/" className="rounded appLogo">
             <span className="logo">
               <img
-                src="https://utfs.io/f/3e291d6a-566a-4fb8-bed4-30c96921f04c-6e4oww.23.33.png"
+                src="https://utfs.io/f/10fd55e8-79c3-489b-8024-25257c42c5fb-hzt98r.png"
                 alt="logo"
                 width="60"
                 height="60"

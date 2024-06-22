@@ -18,7 +18,7 @@ export default function GraffitiDetail({ graffiti, onEdit, onDelete }) {
             <>
               <img
                 className="rounded detail-image"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp5hvw6LxzrtFDIiaj9ETqX7dW38OcbMaHCA&usqp=CAU"
+                src="https://utfs.io/f/10fd55e8-79c3-489b-8024-25257c42c5fb-hzt98r.png"
                 alt={graffiti.name}
               />
             </>
