@@ -27,32 +27,26 @@ function App() {
   } else {
     return (
       <Router>
-        <header className="sticky">
-          <NavLink to="/" className="rounded appLogo">
-            <span className="logo">
-              <img
-                src="https://utfs.io/f/10fd55e8-79c3-489b-8024-25257c42c5fb-hzt98r.png"
-                alt="logo"
-                width="60"
-                height="60"
-              />
-            </span>
-          </NavLink>
-          <NavLink to="/" className="button rounded">
-            <span className="icon-home"></span>
-            Home
-          </NavLink>
-          <NavLink to="/graffitis" className="button rounded">
-            Graffiti Index
-          </NavLink>
-          <NavLink to="/addgraffitis" className="button rounded">
-            Add Graffiti
-          </NavLink>
-          <NavLink to="/searchGraffitis" className="button rounded">
-            Search Graffiti
-          </NavLink>
-          <div className="btn-right">
-            <button className="button rounded" onClick={deleteCurrentToken}>
+        <header className="sticky header-border">
+          <div className="navlink-margin">
+            <NavLink to="/" className="button rounded">
+              <span className="icon-home"></span>
+              Home
+            </NavLink>
+            <NavLink to="/graffitis" className="button rounded">
+              Graffiti Index
+            </NavLink>
+            <NavLink to="/addgraffitis" className="button rounded">
+              Add Graffiti
+            </NavLink>
+            <NavLink to="/searchGraffitis" className="button rounded">
+              Search Graffiti
+            </NavLink>
+            <button
+              to="/"
+              className="button rounded btn-right"
+              onClick={deleteCurrentToken}
+            >
               Log Out
             </button>
           </div>

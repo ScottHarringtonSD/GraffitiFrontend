@@ -91,22 +91,26 @@ function GraffitiPage(props) {
         )}
         {graffiti === graffitiBeingEdited && (
           <>
-            <h1 className="x-large centre">Details</h1>
-            <GraffitiForm
-              graffiti={graffiti}
-              onCancel={cancelEditing}
-              onSave={saveGraffiti}
-            />
+            <fieldset className="field_set">
+              <legend className="x-large centre">Details</legend>
+              <GraffitiForm
+                graffiti={graffiti}
+                onCancel={cancelEditing}
+                onSave={saveGraffiti}
+              />
+            </fieldset>
           </>
         )}
         {graffiti === graffitiBeingDeleted && (
           <>
-            <h1 className="x-large centre">Details</h1>
-            <GraffitiDeletePage
-              graffiti={graffiti}
-              onCancel={cancelDelete}
-              onDelete={deleteGraffiti}
-            />
+            <fieldset className="field_set">
+              <h1 className="x-large centre">Details</h1>
+              <GraffitiDeletePage
+                graffiti={graffiti}
+                onCancel={cancelDelete}
+                onDelete={deleteGraffiti}
+              />
+            </fieldset>
           </>
         )}
         {deleteSuccessful && (
@@ -121,12 +125,14 @@ function GraffitiPage(props) {
           graffiti !== graffitiBeingDeleted &&
           !deleteSuccessful && (
             <>
-              <h1 className="x-large centre">Details</h1>
-              <GraffitiDetail
-                graffiti={graffiti}
-                onEdit={handleEdit}
-                onDelete={handleDelete}
-              />
+              <fieldset className="field_set">
+                <legend className="x-large centre">Details</legend>
+                <GraffitiDetail
+                  graffiti={graffiti}
+                  onEdit={handleEdit}
+                  onDelete={handleDelete}
+                />
+              </fieldset>
             </>
           )}
       </>

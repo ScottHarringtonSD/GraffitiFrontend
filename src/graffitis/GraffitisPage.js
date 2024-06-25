@@ -54,38 +54,40 @@ function GraffitisPage() {
 
   return (
     <>
-      <h1 className="x-large centre">Graffiti Index</h1>
-      {error && (
-        <div className="row">
-          <div className="card large error">
-            <section>
-              <p>
-                <span className="icon-alert inverse "></span>
-                {error}
-              </p>
-            </section>
-          </div>
-        </div>
-      )}
-      <GraffitiList graffitis={graffitis} onSave={saveGraffiti} />
-      {!loading && !error && (
-        <div className="row">
-          <div className="col-sm-12">
-            <div className="button-group fluid">
-              <button className="button default" onClick={handleMoreClick}>
-                More...
-              </button>
+      <fieldset className="field_set">
+        <legend className="x-large centre">Graffiti Index</legend>
+        {error && (
+          <div className="row">
+            <div className="card large error">
+              <section>
+                <p>
+                  <span className="icon-alert inverse "></span>
+                  {error}
+                </p>
+              </section>
             </div>
           </div>
-        </div>
-      )}
+        )}
+        <GraffitiList graffitis={graffitis} onSave={saveGraffiti} />
+        {!loading && !error && (
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="button-group fluid">
+                <button className="button default" onClick={handleMoreClick}>
+                  More...
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
-      {loading && (
-        <div className="center-page">
-          <span className="spinner primary"></span>
-          <p>Loading...</p>
-        </div>
-      )}
+        {loading && (
+          <div className="center-page">
+            <span className="spinner primary"></span>
+            <p>Loading...</p>
+          </div>
+        )}
+      </fieldset>
     </>
   );
 }

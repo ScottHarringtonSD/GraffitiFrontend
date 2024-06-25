@@ -51,17 +51,23 @@ function GraffitiSearchPage() {
 
   return (
     <>
-      <h1 className="x-large centre">Search Graffiti</h1>
-      <div className="row">
-        <div className="col-sm-3"></div>
-        <div className="col-sm-6">
-          <GraffitiSearchBar onType={onSearch} />
-          <div className="col-sm-3"></div>
+      <fieldset className="field_set">
+        <legend className="x-large centre">Search Graffiti</legend>
+        <div className="row">
+          <div className="col-sm-2"></div>
+          <div className="col-sm-8">
+            <GraffitiSearchBar onType={onSearch} />
+            <div className="col-sm-2"></div>
+          </div>
         </div>
-      </div>
+      </fieldset>
 
       {graffitis.length > 0 && !loading && (
-        <GraffitiList graffitis={graffitis} onSave={saveGraffiti} />
+        <fieldset className="field_set">
+          <legend> Results</legend>
+
+          <GraffitiList graffitis={graffitis} onSave={saveGraffiti} />
+        </fieldset>
       )}
 
       {loading && (

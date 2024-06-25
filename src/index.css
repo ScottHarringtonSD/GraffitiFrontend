@@ -9,8 +9,8 @@
   height: 100%;
 }
 
-.card {
-  min-height: 470px;
+.card-index {
+  height: 470px;
 }
 
 .center-page {
@@ -48,13 +48,57 @@
 
 .btn-right {
   float: right;
-  padding-top: 10px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 9px;
 }
 
-.section {
+.section-index {
   min-height: 235px;
 }
 
 .detail-image {
   height: 50vh;
+}
+
+.field_set {
+  border-color: #2e3440;
+  border-style: solid;
+  padding-bottom: 40px;
+}
+
+.navlink-margin {
+  margin-top: 10px;
+}
+
+.header-border {
+  border-width: 2px;
+}
+
+.align-items-center {
+  margin: auto;
+  float: none;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.card-home {
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 53px;
+}
+
+.section-home {
+  min-height: 175 px;
+}
+
+.detail-imdiv {
+  margin: auto;
+  align-items: center;
+  display: block;
+  display: flex;
+  justify-content: center;
 }

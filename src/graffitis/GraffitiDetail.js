@@ -13,7 +13,7 @@ export default function GraffitiDetail({ graffiti, onEdit, onDelete }) {
   return (
     <div className="">
       <div className="row">
-        <div className="col-sm-6">
+        <div className="col-sm-6 detail-imdiv">
           {graffiti.imgLocation === "" && (
             <>
               <img

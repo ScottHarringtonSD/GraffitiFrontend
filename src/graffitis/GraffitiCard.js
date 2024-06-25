@@ -14,22 +14,22 @@ function GraffitiCard(props) {
     onEdit(graffitiBeingEdited);
   };
   return (
-    <div className="card">
+    <div className="card card-index">
       {graffiti.imgLocation === "" && (
         <img
-          className="rounded section media"
+          className="rounded section section-index media"
           src="https://utfs.io/f/10fd55e8-79c3-489b-8024-25257c42c5fb-hzt98r.png"
           alt={graffiti.name}
         />
       )}
       {graffiti.imgLocation !== "" && (
         <img
-          className="rounded section media"
+          className="rounded section-index section media"
           src={graffiti.imgLocation}
           alt={graffiti.name}
         />
       )}
-      <section className="section dark">
+      <section className="section dark section-index">
         <Link to={"/graffitis/" + graffiti._id}>
           <h5 className="strong">
             <strong>{graffiti.name}</strong>

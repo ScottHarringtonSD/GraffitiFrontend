@@ -35,56 +35,58 @@ function GraffitiAddPage() {
 
   return (
     <>
-      <h1 className="x-large centre">Add Graffiti</h1>
-      {cancelScreen && (
-        <>
-          <div className="centre">Changes have been cancelled!</div>
-          <div className="centre-btn">
-            <button
-              className="primary bordered medium centre-btn"
-              onClick={resetPage}
-            >
-              Add New Graffiti
+      <fieldset className="field_set">
+        <legend className="x-large centre">Add Graffiti</legend>
+        {cancelScreen && (
+          <>
+            <div className="centre">Changes have been cancelled!</div>
+            <div className="centre-btn">
+              <button
+                className="primary bordered medium centre-btn"
+                onClick={resetPage}
+              >
+                Add New Graffiti
+              </button>
+            </div>
+          </>
+        )}
+        {successMessage !== "" && (
+          <>
+            <div className="centre">{successMessage.message}!</div>
+            <div className="centre-btn">
+              <button
+                className="primary bordered medium centre-btn"
+                onClick={resetPage}
+              >
+                Add New Graffiti
+              </button>
+            </div>
+          </>
+        )}
+        {error && (
+          <div className="row">
+            <div className="card large error">
+              <section>
+                <p>
+                  <span className="icon-alert inverse "></span> {error}
+                </p>
+              </section>
+            </div>
+            <button className="primary bordered medium" onClick={resetPage}>
+              Try Again
             </button>
           </div>
-        </>
-      )}
-      {successMessage !== "" && (
-        <>
-          <div className="centre">{successMessage.message}!</div>
-          <div className="centre-btn">
-            <button
-              className="primary bordered medium centre-btn"
-              onClick={resetPage}
-            >
-              Add New Graffiti
-            </button>
+        )}
+        {!cancelScreen && successMessage === "" && error === null && (
+          <div>
+            <GraffitiForm
+              graffiti={graffiti}
+              onCancel={cancelAdd}
+              onSave={addGraffiti}
+            />
           </div>
-        </>
-      )}
-      {error && (
-        <div className="row">
-          <div className="card large error">
-            <section>
-              <p>
-                <span className="icon-alert inverse "></span> {error}
-              </p>
-            </section>
-          </div>
-          <button className="primary bordered medium" onClick={resetPage}>
-            Try Again
-          </button>
-        </div>
-      )}
-      {!cancelScreen && successMessage === "" && error === null && (
-        <div>
-          <GraffitiForm
-            graffiti={graffiti}
-            onCancel={cancelAdd}
-            onSave={addGraffiti}
-          />
-        </div>
-      )}
+        )}
+      </fieldset>
     </>
   );
 }
