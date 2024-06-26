@@ -24,7 +24,7 @@ function HomePage() {
               {" "}
               <img
                 className="rounded section section-home media"
-                src="https://utfs.io/f/1695225f-413d-4801-b589-48b5e727f8e8-whmfox.png"
+                src="https://utfs.io/f/b5838d6e-1dc0-4e67-a19b-6c9c1c88e6db-whmfp0.png"
                 alt="Card Name"
               />
               <section className="section dark section-index">
@@ -42,7 +42,7 @@ function HomePage() {
               <div className="card card-home">
                 <img
                   className="rounded section media section-home"
-                  src="https://utfs.io/f/4ba53ccc-123a-4b84-9d5b-870708579f60-whmfow.png"
+                  src="https://utfs.io/f/3d53ad8c-4595-404d-82f2-dff3b86a4553-gwwud3.11.28.png"
                   alt="Card "
                 />
                 <section className="section dark section-index">
