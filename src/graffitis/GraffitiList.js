@@ -19,15 +19,17 @@ function GraffitiList({ graffitis, onSave }) {
   return (
     <div className="row">
       {graffitis.map((graffiti) => (
-        <div key={graffiti._id} className="col-sm-3">
+        <div key={graffiti._id} className="col-sm-3 mx-auto content-center justify-center items-center">
           {graffiti === graffitiBeingEdited ? (
             <GraffitiForm
               graffiti={graffiti}
               onCancel={cancelEditing}
               onSave={onSave}
             />
-          ) : (
-            <GraffitiCard graffiti={graffiti} onEdit={handleEdit} />
+          ) : ( 
+            <div className="w-full">
+              <GraffitiCard graffiti={graffiti} onEdit={handleEdit} />
+            </div>   
           )}
         </div>
       ))}

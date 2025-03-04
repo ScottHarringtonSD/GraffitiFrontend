@@ -55,7 +55,7 @@ function GraffitiAddPage() {
             <div className="centre roboto-slab-text">{successMessage.message}!</div>
             <div className="centre-btn">
               <button
-                className="primary bordered medium centre-btn roboto-slab-text"
+                className="primary bordered medium centre-btn roboto-slab-text button"
                 onClick={resetPage}
               >
                 Add New Graffiti

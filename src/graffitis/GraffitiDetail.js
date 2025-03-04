@@ -55,7 +55,7 @@ export default function GraffitiDetail({ graffiti, onEdit, onDelete }) {
             <p className="roboto-slab-text">{graffiti.description}</p>
           </section>
           <button
-            className=" bordered rounded-lg roboto-slab-text"
+            className=" bordered rounded-lg roboto-slab-text button"
             onClick={() => {
               handleEditClick(graffiti);
             }}
@@ -64,7 +64,7 @@ export default function GraffitiDetail({ graffiti, onEdit, onDelete }) {
             Edit
           </button>
           <button
-            className="inverse bordered rounded-lg roboto-slab-text"
+            className="inverse bordered rounded-lg roboto-slab-text button"
             onClick={() => {
               handleDeleteClick(graffiti);
             }}

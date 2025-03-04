@@ -252,9 +252,9 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
         <UploadPage setUrl={setUrl} />
 
         <div className="input-group">
-          <button className="primary bordered medium roboto-slab-text rounded-lg">Save</button>
+          <button className="button primary bordered medium roboto-slab-text rounded-lg">Save</button>
           <span></span>
-          <button type="button" className="bordered medium roboto-slab-text rounded-lg" onClick={onCancel}>
+          <button type="button" className="button bordered medium roboto-slab-text rounded-lg" onClick={onCancel}>
             cancel
           </button>
         </div>
