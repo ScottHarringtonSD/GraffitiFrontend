@@ -41,7 +41,7 @@ function GraffitiCard(props) {
           <p className="roboto-slab-text">{formatDescription(graffiti.description)}</p>
         </Link>
         <button
-          className=" button bordered rounded-lg roboto-slab-text "
+          className="button bordered rounded-lg roboto-slab-text "
           onClick={() => {
             handleEditClick(graffiti);
           }}
