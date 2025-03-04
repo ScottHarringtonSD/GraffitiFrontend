@@ -54,8 +54,8 @@ function GraffitisPage() {
 
   return (
     <>
-      <fieldset className="field_set">
-        <legend className="x-large centre">Graffiti Index</legend>
+      <fieldset className="field_set rounded-lg">
+        <legend className="x-large centre roboto-slab-text">Graffiti Index</legend>
         {error && (
           <div className="row">
             <div className="card large error">
@@ -73,7 +73,7 @@ function GraffitisPage() {
           <div className="row">
             <div className="col-sm-12">
               <div className="button-group fluid">
-                <button className="button default" onClick={handleMoreClick}>
+                <button className="button default roboto-slab-text" onClick={handleMoreClick}>
                   More...
                 </button>
               </div>
@@ -84,7 +84,7 @@ function GraffitisPage() {
         {loading && (
           <div className="center-page">
             <span className="spinner primary"></span>
-            <p>Loading...</p>
+            <p className="roboto-slab-text">Loading...</p>
           </div>
         )}
       </fieldset>

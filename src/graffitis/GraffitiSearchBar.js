@@ -13,7 +13,7 @@ function GraffitiSearchBar({ onType }) {
       name="searchString"
       placeholder="Search by Name, GSN, Address or Description"
       onChange={handleChange}
-      className="search-input bordered"
+      className="search-input bordered roboto-slab-text rounded-lg"
     />
   );
 }

@@ -130,45 +130,45 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
 
   return (
     <>
-      <form className="input-group vertical" onSubmit={handleSubmit}>
-        <label htmlFor="name">Graffiti Name</label>
+      <form className="input-group vertical rounded-lg" onSubmit={handleSubmit}>
+        <label htmlFor="name roboto-slab-text" className="roboto-slab-text">Graffiti Name</label>
         <input
           type="text"
           name="name"
           placeholder="enter name"
           value={graffiti.name}
           onChange={handleChange}
-          className="bordered"
+          className="bordered roboto-slab-text rounded-lg"
         />
         {errors.name.length > 0 && (
-          <div className="card error">
+          <div className="card error rounded-lg">
             <p>{errors.name}</p>{" "}
           </div>
         )}
 
-        <label htmlFor="graffitiSurveyNumber">Graffiti Survey Number</label>
+        <label htmlFor="graffitiSurveyNumber roboto-slab-text">Graffiti Survey Number</label>
         <input
           type="text"
           name="graffitiSurveyNumber"
           placeholder="enter GSN"
           value={graffiti.graffitiSurveyNumber}
           onChange={handleChange}
-          className="bordered"
+          className="bordered roboto-slab-text rounded-lg"
         />
         {errors.graffitiSurveyNumber.length > 0 && (
-          <div className="card error">
+          <div className="card error roboto-slab-text rounded-lg">
             <p>{errors.graffitiSurveyNumber}</p>{" "}
           </div>
         )}
 
-        <label htmlFor="size">Size</label>
+        <label htmlFor="size" className="roboto-slab-text">Size</label>
         <input
           type="text"
           name="size"
           placeholder="enter size"
           value={graffiti.size}
           onChange={handleChange}
-          className="bordered"
+          className="bordered roboto-slab-text rounded-lg"
         />
         {errors.size.length > 0 && (
           <div className="card error">
@@ -176,85 +176,85 @@ function GraffitiForm({ graffiti: initialGraffiti, onSave, onCancel }) {
           </div>
         )}
 
-        <label htmlFor="address">Address</label>
+        <label htmlFor="address" className="roboto-slab-text">Address</label>
         <input
           type="text"
           name="address"
           placeholder="enter address"
           value={graffiti.address}
           onChange={handleChange}
-          className="bordered"
+          className="bordered roboto-slab-text rounded-lg"
         />
         {errors.address.length > 0 && (
-          <div className="card error">
+          <div className="card error roboto-slab-text rounded-lg">
             <p>{errors.address}</p>{" "}
           </div>
         )}
 
-        <label htmlFor="postcode">Postcode</label>
+        <label htmlFor="postcode" className="roboto-slab-text">Postcode</label>
         <input
           type="text"
           name="postcode"
           placeholder="enter postcode"
           value={graffiti.postcode}
           onChange={handleChange}
-          className="bordered"
+          className="bordered rounded-lg roboto-slab-text"
         />
         {errors.postcode.length > 0 && (
-          <div className="card error">
+          <div className="card error rounded-lg roboto-slab-text">
             <p>{errors.postcode}</p>{" "}
           </div>
         )}
 
-        <label htmlFor="location.longitude">Longitude</label>
+        <label htmlFor="location.longitude" className="roboto-slab-text">Longitude</label>
         <input
           type="number"
           name="location.longitude"
           placeholder="enter longitude"
           value={graffiti.location.longitude}
           onChange={handleChange}
-          className="bordered"
+          className="bordered rounded-lg roboto-slab-text"
         />
 
-        <label htmlFor="location.latitude">Latitude</label>
+        <label htmlFor="location.latitude" className="roboto-slab-text">Latitude</label>
         <input
           type="number"
           name="location.latitude"
           placeholder="enter latitude"
           value={graffiti.location.latitude}
           onChange={handleChange}
-          className="bordered"
+          className="bordered rounded-lg roboto-slab-text"
         />
 
-        <label htmlFor="description">Description</label>
+        <label htmlFor="description" className="roboto-slab-text">Description</label>
         <textarea
           name="description"
           placeholder="enter description"
           value={graffiti.description}
           onChange={handleChange}
-          className="bordered"
+          className="bordered rounded-lg roboto-slab-text mx-2"
         ></textarea>
         {errors.description.length > 0 && (
-          <div className="card error">
+          <div className="card error rounded-lg roboto-slab-text">
             <p>{errors.description}</p>{" "}
           </div>
         )}
 
-        <label htmlFor="imgLocation">Image URL</label>
+        <label htmlFor="imgLocation" className="roboto-slab-text">Image URL</label>
         <input
           type="text"
           name="imgLocation"
           placeholder="enter URL"
           value={imgUrl}
           onChange={handleChange}
-          className="bordered"
+          className="bordered rounded-lg roboto-slab-text"
         />
         <UploadPage setUrl={setUrl} />
 
         <div className="input-group">
-          <button className="primary bordered medium">Save</button>
+          <button className="primary bordered medium roboto-slab-text rounded-lg">Save</button>
           <span></span>
-          <button type="button" className="bordered medium" onClick={onCancel}>
+          <button type="button" className="bordered medium roboto-slab-text rounded-lg" onClick={onCancel}>
             cancel
           </button>
         </div>

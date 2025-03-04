@@ -17,7 +17,7 @@ export default function GraffitiDetail({ graffiti, onEdit, onDelete }) {
           {graffiti.imgLocation === "" && (
             <>
               <img
-                className="rounded detail-image"
+                className="rounded-md detail-image"
                 src="https://utfs.io/f/10fd55e8-79c3-489b-8024-25257c42c5fb-hzt98r.png"
                 alt={graffiti.name}
               />
@@ -25,7 +25,7 @@ export default function GraffitiDetail({ graffiti, onEdit, onDelete }) {
           )}
           {graffiti.imgLocation !== "" && (
             <img
-              className="rounded detail-image"
+              className="rounded-md detail-image"
               src={graffiti.imgLocation}
               alt={graffiti.name}
             />
@@ -33,43 +33,43 @@ export default function GraffitiDetail({ graffiti, onEdit, onDelete }) {
         </div>
         <div className="col-sm-6">
           <section className="section dark">
-            <h3 className="strong">
-              <strong>{graffiti.name}</strong>
+            <h3 className="strong roboto-slab-text">
+              <strong className="roboto-slab-text font-bold">{graffiti.name}</strong>
             </h3>
-            <p>
-              <strong>GSN:</strong> {graffiti.graffitiSurveyNumber}
+            <p className="roboto-slab-text">
+              <strong className="roboto-slab-text font-bold">GSN:</strong> {graffiti.graffitiSurveyNumber}
             </p>
-            <p>
-              <strong>Size:</strong> {graffiti.size}
+            <p className="roboto-slab-text">
+              <strong className="roboto-slab-text font-bold">Size:</strong> {graffiti.size}
             </p>
-            <p>
-              <strong>Address:</strong> {graffiti.address}
+            <p className="roboto-slab-text">
+              <strong className="roboto-slab-text font-bold">Address:</strong> {graffiti.address}
             </p>
-            <p>
-              <strong>Postcode:</strong> {graffiti.postcode}
+            <p className="roboto-slab-text">
+              <strong className="roboto-slab-text font-bold">Postcode:</strong> {graffiti.postcode}
             </p>
-            <p>
-              <strong>Location:</strong> {graffiti.location.longitude}°,{" "}
+            <p className="roboto-slab-text">
+              <strong className="roboto-slab-text font-bold">Location:</strong> {graffiti.location.longitude}°,{" "}
               {graffiti.location.latitude}°
             </p>
-            <p>{graffiti.description}</p>
+            <p className="roboto-slab-text">{graffiti.description}</p>
           </section>
           <button
-            className=" bordered"
+            className=" bordered rounded-lg roboto-slab-text"
             onClick={() => {
               handleEditClick(graffiti);
             }}
           >
-            <span className="icon-edit "></span>
+            <span className="icon-edit roboto-slab-text"></span>
             Edit
           </button>
           <button
-            className="inverse bordered"
+            className="inverse bordered rounded-lg roboto-slab-text"
             onClick={() => {
               handleDeleteClick(graffiti);
             }}
           >
-            <span className=""></span>
+            <span className=" roboto-slab-text"></span>
             Delete
           </button>
         </div>

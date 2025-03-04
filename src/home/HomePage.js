@@ -5,11 +5,11 @@ import GraffitiSearchPage from "../graffitis/GraffitiSearchPage";
 
 function HomePage() {
   return (
-    <>
+    <div className="roboto-slab-text">
       <div className="row">
         <div className="col-sm-1"></div>
         <div className="col-sm-10">
-          <h5 className="centre x-large">
+          <h5 className="centre x-large roboto-slab-text">
             Welcome to the Graffiti Database homepage! Please enjoy browsing
             entries!
           </h5>
@@ -18,9 +18,9 @@ function HomePage() {
       </div>
       <div className="row">
         <div className="col-sm-2"></div>
-        <div className="col-sm-4">
+        <div className="col-sm-4 ">
           <NavLink to="/searchGraffitis">
-            <div className="card card-home">
+            <div className="card card-home rounded-lg">
               {" "}
               <img
                 className="rounded section section-home media"
@@ -28,9 +28,9 @@ function HomePage() {
                 alt="Card Name"
               />
               <section className="section dark section-index">
-                <div>Search through the current entries in the database</div>
+                <div className="roboto-slab-text">Search through the current entries in the database</div>
                 <div>
-                  <button className="button rounded">Browse &gt;&gt;</button>
+                  <button className="button rounded roboto-slab-text">Browse &gt;&gt;</button>
                 </div>
               </section>
             </div>
@@ -39,15 +39,15 @@ function HomePage() {
         <div className="col-sm-4 align-items-center">
           <div className="align-items-center">
             <NavLink to="/addgraffitis">
-              <div className="card card-home">
+              <div className="card card-home rounded-lg">
                 <img
                   className="rounded section media section-home"
                   src="https://utfs.io/f/3d53ad8c-4595-404d-82f2-dff3b86a4553-gwwud3.11.28.png"
                   alt="Card "
                 />
-                <section className="section dark section-index">
+                <section className="section dark section-index roboto-slab-text">
                   Add more entries to the database
-                  <button className="button rounded">
+                  <button className="button rounded roboto-slab-text">
                     Get Started &gt;&gt;
                   </button>
                 </section>
@@ -63,7 +63,7 @@ function HomePage() {
           <Route path="/searchgraffitis" element={<GraffitiSearchPage />} />
         </Routes>
       </div>
-    </>
+    </div>
   );
 }
 

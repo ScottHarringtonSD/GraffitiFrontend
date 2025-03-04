@@ -26,32 +26,32 @@ function App() {
     return <LoginPage setToken={setToken} />;
   } else {
     return (
-      <Router>
-        <header className="sticky header-border">
-          <div className="navlink-margin">
-            <NavLink to="/" className="button rounded">
-              <span className="icon-home"></span>
+      <Router className="roboto-slab-text">
+        <header className="sticky header-border roboto-slab-text">
+          <div className="navlink-margin roboto-slab-text">
+            <NavLink to="/" className="button rounded-lg roboto-slab-text">
+              <span className="icon-home roboto-slab-text rounded-lg"></span>
               Home
             </NavLink>
-            <NavLink to="/graffitis" className="button rounded">
+            <NavLink to="/graffitis" className="button rounded-lg roboto-slab-text">
               Graffiti Index
             </NavLink>
-            <NavLink to="/addgraffitis" className="button rounded">
+            <NavLink to="/addgraffitis" className="button rounded-md roboto-slab-text">
               Add Graffiti
             </NavLink>
-            <NavLink to="/searchGraffitis" className="button rounded">
+            <NavLink to="/searchGraffitis" className="button rounded-md roboto-slab-text">
               Search Graffiti
             </NavLink>
             <button
               to="/"
-              className="button rounded btn-right"
+              className="button rounded-md btn-right roboto-slab-text"
               onClick={deleteCurrentToken}
             >
               Log Out
             </button>
           </div>
         </header>
-        <div className="container">
+        <div className="container roboto-slab-text">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/graffitis" element={<GraffitisPage />} />

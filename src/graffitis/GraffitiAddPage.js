@@ -35,14 +35,14 @@ function GraffitiAddPage() {
 
   return (
     <>
-      <fieldset className="field_set">
-        <legend className="x-large centre">Add Graffiti</legend>
+      <fieldset className="field_set rounded-lg">
+        <legend className="x-large centre roboto-slab-text">Add Graffiti</legend>
         {cancelScreen && (
           <>
-            <div className="centre">Changes have been cancelled!</div>
+            <div className="centre robto-slab-text">Changes have been cancelled!</div>
             <div className="centre-btn">
               <button
-                className="primary bordered medium centre-btn"
+                className="primary bordered medium centre-btn roboto-slab-text"
                 onClick={resetPage}
               >
                 Add New Graffiti
@@ -52,10 +52,10 @@ function GraffitiAddPage() {
         )}
         {successMessage !== "" && (
           <>
-            <div className="centre">{successMessage.message}!</div>
+            <div className="centre roboto-slab-text">{successMessage.message}!</div>
             <div className="centre-btn">
               <button
-                className="primary bordered medium centre-btn"
+                className="primary bordered medium centre-btn roboto-slab-text"
                 onClick={resetPage}
               >
                 Add New Graffiti
@@ -65,7 +65,7 @@ function GraffitiAddPage() {
         )}
         {error && (
           <div className="row">
-            <div className="card large error">
+            <div className="card large error rounded-lg">
               <section>
                 <p>
                   <span className="icon-alert inverse "></span> {error}

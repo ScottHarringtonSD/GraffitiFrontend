@@ -14,7 +14,7 @@ function GraffitiCard(props) {
     onEdit(graffitiBeingEdited);
   };
   return (
-    <div className="card card-index">
+    <div className="card card-index rounded-lg">
       {graffiti.imgLocation === "" && (
         <img
           className="rounded section section-index media"
@@ -29,19 +29,19 @@ function GraffitiCard(props) {
           alt={graffiti.name}
         />
       )}
-      <section className="section dark section-index">
+      <section className="section dark section-index roboto-slab-text">
         <Link to={"/graffitis/" + graffiti._id}>
           <h5 className="strong">
-            <strong>{graffiti.name}</strong>
+            <strong className="roboto-slab-text">{graffiti.name}</strong>
           </h5>
-          <p>
-            <strong>GSN: </strong>
+          <p className="roboto-slab-text">
+            <strong className="roboto-slab-text">GSN: </strong>
             {graffiti.graffitiSurveyNumber}
           </p>
-          <p>{formatDescription(graffiti.description)}</p>
+          <p className="roboto-slab-text">{formatDescription(graffiti.description)}</p>
         </Link>
         <button
-          className=" bordered"
+          className=" bordered roboto-slab-text"
           onClick={() => {
             handleEditClick(graffiti);
           }}

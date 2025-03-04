@@ -102,3 +102,16 @@
   display: flex;
   justify-content: center;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.roboto-slab-text {
+  font-family: "Roboto Slab", serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}

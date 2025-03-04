@@ -70,20 +70,20 @@ function GraffitiPage(props) {
       <>
         {loading && (
           <>
-            <h1 className="x-large centre">Details</h1>
+            <h1 className="x-large centre roboto-slab-text">Details</h1>
             <div className="center-page">
               <span className="spinner primary"></span>
-              <p>Loading...</p>
+              <p className="robot-slab-text">Loading...</p>
             </div>
           </>
         )}
 
         {error && (
           <div className="row">
-            <div className="card large error">
+            <div className="card large error rounded-lg">
               <section>
                 <p>
-                  <span className="icon-alert inverse "></span> {error}
+                  <span className="icon-alert inverse roboto-slab-text"></span> {error}
                 </p>
               </section>
             </div>
@@ -91,8 +91,8 @@ function GraffitiPage(props) {
         )}
         {graffiti === graffitiBeingEdited && (
           <>
-            <fieldset className="field_set">
-              <legend className="x-large centre">Details</legend>
+            <fieldset className="field_set rounded-lg">
+              <legend className="x-large centre roboto-slab-text">Details</legend>
               <GraffitiForm
                 graffiti={graffiti}
                 onCancel={cancelEditing}
@@ -103,8 +103,8 @@ function GraffitiPage(props) {
         )}
         {graffiti === graffitiBeingDeleted && (
           <>
-            <fieldset className="field_set">
-              <h1 className="x-large centre">Details</h1>
+            <fieldset className="field_set rounded-lg">
+              <h1 className="x-large centre roboto-slab-text">Details</h1>
               <GraffitiDeletePage
                 graffiti={graffiti}
                 onCancel={cancelDelete}
@@ -115,7 +115,7 @@ function GraffitiPage(props) {
         )}
         {deleteSuccessful && (
           <>
-            <h5 className="centre">
+            <h5 className="centre roboto-slab-text">
               Your Graffiti has successfully been deleted!
             </h5>
           </>
@@ -125,8 +125,8 @@ function GraffitiPage(props) {
           graffiti !== graffitiBeingDeleted &&
           !deleteSuccessful && (
             <>
-              <fieldset className="field_set">
-                <legend className="x-large centre">Details</legend>
+              <fieldset className="field_set rounded-lg">
+                <legend className="x-large centre roboto-slab-text">Details</legend>
                 <GraffitiDetail
                   graffiti={graffiti}
                   onEdit={handleEdit}

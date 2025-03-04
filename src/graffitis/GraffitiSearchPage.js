@@ -51,8 +51,8 @@ function GraffitiSearchPage() {
 
   return (
     <>
-      <fieldset className="field_set">
-        <legend className="x-large centre">Search Graffiti</legend>
+      <fieldset className="field_set rounded-lg">
+        <legend className="x-large centre roboto-slab-text">Search Graffiti</legend>
         <div className="row">
           <div className="col-sm-2"></div>
           <div className="col-sm-8">
@@ -63,8 +63,8 @@ function GraffitiSearchPage() {
       </fieldset>
 
       {graffitis.length > 0 && !loading && (
-        <fieldset className="field_set">
-          <legend> Results</legend>
+        <fieldset className="field_set rounded-lg mt-2">
+          <legend className="roboto-slab-text mx-4"> Results</legend>
 
           <GraffitiList graffitis={graffitis} onSave={saveGraffiti} />
         </fieldset>
@@ -73,7 +73,7 @@ function GraffitiSearchPage() {
       {loading && (
         <div className="center-page">
           <span className="spinner primary"></span>
-          <p>Loading...</p>
+          <p className="roboto-slab-text">Loading...</p>
         </div>
       )}
     </>

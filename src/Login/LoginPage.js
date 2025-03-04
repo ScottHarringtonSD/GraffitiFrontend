@@ -21,7 +21,7 @@ export default function LoginPage({ setToken }) {
   };
 
   return (
-    <div className="login-wrapper">
+    <div className="login-wrapper roboto-slab-text">
       <h1>Please Log In</h1>
       <form onSubmit={handleSubmit}>
         <label>

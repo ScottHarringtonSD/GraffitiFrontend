@@ -12,10 +12,10 @@ function GraffitiDeletePage({ graffiti: initialGraffiti, onDelete, onCancel }) {
   return (
     <>
       <h5>Are you sure you want to delete this graffiti?</h5>
-      <button className="bordered" onClick={onCancel}>
+      <button className="bordered rounded-lg roboto-slab-text" onClick={onCancel}>
         Cancel
       </button>
-      <button className="bordered" onClick={handleDelete}>
+      <button className="bordered rounded roboto-slab-text" onClick={handleDelete}>
         Delete
       </button>
     </>
